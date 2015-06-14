@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :posts
+
+  root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -26,9 +30,6 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-
-get 'posts/new' => 'posts#new'
-post 'posts' => 'posts#create'
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

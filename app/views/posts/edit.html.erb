@@ -1,0 +1,24 @@
+
+
+<h1>編集</h1>
+
+<%= form_for @post, url: { action: :update } do |f| %>
+
+<p>
+  タイトル:<br>
+  <%= f.text_field :title %>
+</p>
+<p>
+  カテゴリ:<br>
+  <%= f.text_field :category %>
+</p>
+<p>
+  内容:<br>
+  <%= f.text_field :body %>
+</p>
+
+
+<%= f.submit "登録" %>
+
+<% end %>
+
