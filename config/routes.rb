@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   #     end
   #   end
 
+
+get 'posts/new' => 'posts#new'
+post 'posts' => 'posts#create'
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
