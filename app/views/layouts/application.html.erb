@@ -37,6 +37,18 @@
       </div>
     <% end %>
 
+    <div class="collapse navbar-collapse" id="navbar-collapse-menu">
+      <ul class="nav navbar-nav navbar-right">
+        <% if writer_signed_in? %>
+          <li><%= link_to "設定変更", edit_writer_registration_path %></li>
+          <li><%= link_to "ログアウト", destroy_writer_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_writer_registration_path %></li>
+          <li><%= link_to "ログイン", new_writer_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
 
 
     <!-- Collect the nav links, forms, and other content for toggling -->
