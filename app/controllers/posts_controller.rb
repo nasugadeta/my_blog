@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def create
     #post_paramsでprivate以下を呼び出し(Postクラスでnewメソッドを呼び出す。空っぽの行を作る)
+    #def newで作ったPost.newを使う
     @post = Post.new(post_params)
     #データベースに保存
     @post.save
@@ -16,15 +17,21 @@ class PostsController < ApplicationController
   def show
     #書かなくてok
     @post = Post.find(params[:id])
+    @q = Post.search(params[:q])
+    @posts = @q.result.page(params[:page])
   end
 
   def index
-  @posts = Post.all
+    #@posts = Post.page(params[:page])
+    @q = Post.search(params[:q])
+    @posts = @q.result.page(params[:page])
   end
 
   def edit
     #書かなくてok
      @post = Post.find(params[:id])
+     @q = Post.search(params[:q])
+     @posts = @q.result.page(params[:page])
   end
 
   def update
@@ -55,5 +62,5 @@ class PostsController < ApplicationController
 
   def set_post
    @post = Post.find(params[:id])
- end
+  end
 end

@@ -5,20 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -28,14 +26,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/posts">ぶろぐ</a>
-      <a class="navbar-brand" href="/posts/new">投稿する</a>
+      <a class="navbar-brand" href="/posts">ブログアプリをつくってみました</a>
     </div>
-  </div>
-</nav>
 
-<div class ="container">
-  <div class = "row">
+
+    <%= search_form_for @q, class: "navbar-form navbar-left" do |f| %>
+      <div class="form-group">
+        <%= f.search_field :title_or_body_cont, class: "form-control" %>
+        <%= f.submit "検索", class: "btn btn-default" %>
+      </div>
+    <% end %>
+
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/posts/new">投稿する</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <div class="row">
     <%= yield %>
   </div>
 </div>
