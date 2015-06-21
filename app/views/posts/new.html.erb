@@ -1,19 +1,19 @@
-<h1>ブログ投稿記事</h1>
+<div class="col-md-12">
+  <h1>ブログ記事投稿</h1>
+  <%= form_for @post do |f| %>
+    <div class="form-group">
+      <%= f.label "タイトル" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "カテゴリ" %><br>
+      <%= f.collection_select(:category_id, Category.all, :id, :title, class: "form-control") %>
+    </div>
+    <div class="form-group">
+      <%= f.label "本文" %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <%= f.submit '登録する', class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-<%= form_for @post, url: { action: :create } do |f| %>
-<p>
-  タイトル:<br>
-  <%= f.text_field :title %>
-</p>
-<p>
-  カテゴリ:<br>
-  <%= f.text_field :category %>
-</p>
-<p>
-  本文:<br>
-  <%= f.number_field :body %>
-</p>
-
-<%= f.submit "記事を投稿する" %>
-
-<% end %>
