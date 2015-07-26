@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_writer!
   #ここでbefore_action set_qとdef set_qを指示するのではなく、application_controller.rbで指示する。deviseとの衝突が問題。application_controllerは全体に適用する
 
   def new
